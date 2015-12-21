@@ -1,20 +1,19 @@
-### DApp Toolkit
+### Crypti Guestbook
 
-The official Crypti decentralized application (DApp) toolkit.
+With the Crypti Guestbook you can immortalize yourself in a sidechain of Crypti. 
 
-Requires:
+### Guide
 
-  * Crypti 0.5.0
+Simply insert your passphrase (optional) and a text into the input fields and press on Submit. Then you have to wait 10 seconds and the text will appear below the line. 
 
-### Directory Structure
+- Character maximum is 1000!
+- You can only view the last 20 entries below.
+- The entries get reloaded every 10 seconds.
+- If you don't insert a passphrase it will use "guestbook".
+- The fee for an entry is 0 XCR. Please don't spam. :)
 
-  * **modules** - Contains the backend code of your dapp.
-  * **public** - Contains the frontend user interface of your dapp.
-  * **blockchain.json** - JSON file describing the SQL database schema. You will need this if you want to store any data within your dapp.
-  * **config.json** - JSON file containing your dapp's configuration data. By default this file defines a list of peers.
-  * **genesis.json** - JSON file containing important information about your dapp's genesis block.
-  * **index.js** - JavaScript file used to start your dapp.
-  * **modules.full.json** - JSON file containing a list of defined modules, required by **index.js**.
-  * **routes.json** - JSON file defining the HTTP routes of every endpoint in your dapp's API.
+### Troubleshoot
 
-Full documentation is available [here](https://github.com/crypti/crypti-dapps-docs).
+If there are problems, please come to https://crypti.chat/ and ask for @Max!
+
+Thank you.
