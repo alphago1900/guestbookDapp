@@ -65,13 +65,13 @@
 		"handler": "blockchain.delegates.addDelegates"
 	},
 	{
-	    "path": "/entries/add",
-	    "method": "put",
-	    "handler": "contracts.Guestbook.add"
+		  "path": "/entries/add",
+		  "method": "put",
+		  "handler": "contracts.guestbook.add"
 	},
 	{
-	    "path": "/entries/list",
-	    "method": "get",
-	    "handler" : "contracts.Guestbook.list"
+		   "path": "/entries/list",
+		   "method": "get",
+		    "handler" : "contracts.guestbook.list"
 	}
 ]
