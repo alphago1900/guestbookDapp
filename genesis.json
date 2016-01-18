@@ -1,7 +1,7 @@
 {
     "delegate": "c0feb41da066388d672b830d0f39de8d5265b6f4d71a2f8e88a62e4fbeb1de83",
     "height": 1,
-    "pointId": "16986748105791597062",
+    "pointId": "9758412392745075185",
     "pointHeight": 1,
     "transactions": [
         {
@@ -19,14 +19,14 @@
                     ]
                 }
             },
-            "signature": "677bea5c953f50317bb1d45437fe07eb199427e45a11cf62a7032ac53fe44f40b5a944bd99717e8f7b3eb52c61a50d7ee34b4ced96031b972d91c2e5d08e6b0f",
-            "id": "18320880317557496453"
+            "signature": "55101adafcca45dcc95a23ec9c0c66fab3f754180677dbb088a27989a9507c9082ef0e49cd4f985a3f54f7228b5b1244c4d2972396419814143b94fb06bdfd01",
+            "id": "11860116857253215509"
         }
     ],
     "timestamp": 0,
     "count": 1,
     "payloadLength": 182,
-    "payloadHash": "85da75a494d740fe7c44937f73e687232e6554a1e8815d1ca751856ef45e5695",
-    "signature": "1db8f14cff6e49754bf923aee78003e4b24172e2cdf47766e2a614081d9ee8450bf4dbeff33d6739b9918448e7e6720bbaca8ffa6b8e76fd395e236cc3e7130e",
-    "id": "1707013648430852248"
+    "payloadHash": "153d33af719997a4fb196c1160baf61b052f539cc9d7e64c9c048a2df7484e8b",
+    "signature": "495a1899c1c322370b057726fea70ac00a7b9cc8db0d4489a5307bdade42d9abddcb1d6aaad3f644e2a09686f109f21228558d5acb3264747ea01fcad752d500",
+    "id": "10876529066000182435"
 }
