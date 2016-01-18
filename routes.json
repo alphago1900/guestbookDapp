@@ -67,11 +67,11 @@
 	{
 		  "path": "/entries/add",
 		  "method": "put",
-		  "handler": "contracts.Guestbook.add"
+		  "handler": "contracts.guestbook.add"
 	},
 	{
 		   "path": "/entries/list",
 		   "method": "get",
-		    "handler" : "contracts.Guestbook.list"
+		    "handler" : "contracts.guestbook.list"
 	}
 ]
