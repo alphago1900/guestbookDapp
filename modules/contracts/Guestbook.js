@@ -11,7 +11,7 @@ function Guestbook(cb, _library) {
 Guestbook.prototype.create = function (data, trs) {
 	trs.recipientId = data.recipientId;
 	trs.asset = {
-		entry: new Buffer(data.entry, 'utf8').toString('hex') // Save entry as hex string
+		entry: new Buffer(data.message, 'utf8').toString('hex') // Save entry as hex string
 	};
 
 	return trs;
@@ -131,10 +131,11 @@ Guestbook.prototype.add = function (cb, query) {
 	}, function (err) {
 		// If error exists, execute callback with error as first argument
 		if (err) {
-			return cb(err[0].entry);
+			return cb(err[0].message);
 		}
 
 		var keypair = modules.api.crypto.keypair(query.secret);
+		
 		modules.blockchain.accounts.setAccountAndGet({
 			publicKey: keypair.publicKey.toString('hex')
 		}, function (err, account) {
@@ -177,7 +178,7 @@ Guestbook.prototype.list = function (cb, query) {
         required: ["recipientId"]
     }, function (err) {
         if (err) {
-            return cb(err[0].entry);
+            return cb(err[0].message);
         }
 
         // Select from transactions table and join entries from the asset_entries table
