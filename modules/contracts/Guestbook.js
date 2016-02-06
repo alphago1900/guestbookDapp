@@ -11,7 +11,7 @@ function Guestbook(cb, _library) {
 Guestbook.prototype.create = function (data, trs) {
 	trs.recipientId = data.recipientId;
 	trs.asset = {
-		entry: new Buffer(data.message, 'utf8').toString('hex') // Save entry as hex string
+		entry: new Buffer(data.entry, 'utf8').toString('hex') // Save entry as hex string
 	};
 
 	return trs;
