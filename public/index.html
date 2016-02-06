@@ -106,7 +106,7 @@
                 }
                 $("#entryOverview")
                         .prepend("<table class='table table-bordered'><tr><td class='col-md-1'><strong>#" + key + "</strong></td><td class='col-md-7'><strong>Sender:</strong> " + value.senderId + "</td><td class='col-md-4'><strong>ID:</strong> " + value.blockId.substring(0, 15) + "</td></tr><tr><td colspan='4'>" + value.asset.entry.replace(/[<>]/g,'') + "</td></tr></table>");
-            })
+            });
         });
     }
 
