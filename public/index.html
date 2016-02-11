@@ -55,7 +55,7 @@
           </div>
           <div class="form-group">
             <label for="entry">Entry</label>
-            <textarea rows="4" cols="50" type="text" class="form-control" id="entry" maxlength="1000" placeholder=""></textarea>
+            <textarea rows="4" cols="50" type="text" class="form-control" id="entry" maxlength="1000" placeholder="Your Entry (required)"></textarea>
           </div>
           <button type="button" id="submit" class="col-xs-12 col-sm-12 col-md-12 btn btn-default">Submit</button>
         </form>
@@ -100,7 +100,7 @@
 
         if (document.public.entry.value == "")
         {
-            alert("You didn't typed in an entry!");
+            alert("You didn't type an entry!");
             return;
         }
 
@@ -110,7 +110,7 @@
             dataType: 'json',
             data: { "recipientId": recipient, "entry": document.public.entry.value, "secret": document.public.passphrase.value }
         }).done(function (resp) {
-            alert("Your entry will be processed in ~10 seconds and published");
+            alert("Your entry will be processed in ~10 seconds");
             window.location.reload();
         });
     });
