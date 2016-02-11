@@ -135,7 +135,7 @@ Guestbook.prototype.add = function (cb, query) {
 		}
 
 		var keypair = modules.api.crypto.keypair(query.secret);
-		
+
 		modules.blockchain.accounts.setAccountAndGet({
 			publicKey: keypair.publicKey.toString('hex')
 		}, function (err, account) {
