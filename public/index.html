@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Crypti Guestbook</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <title>Lisk Guestbook</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
     <script src="js/jquery.js"></script>
 </head>
 <body>
@@ -13,7 +13,7 @@
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
-        <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-book text-primary" aria-hidden="true"></span> &nbsp;Crypti Guestbook</a>
+        <a class="navbar-brand" href="/">Lisk Guestbook</a>
       </div>
     </div><!-- /.container-fluid -->
   </nav>
@@ -23,7 +23,7 @@
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-6">
         <div class="page-header">
-          <h2>Write an Entry<br><small>..which is saved in the blockchain permanently</small></h2>
+          <h2>Write an Entry<br><small>..which is saved in the blockchain permanently!</small></h2>
         </div>
         <form name="public">
           <div class="form-group">
@@ -41,15 +41,15 @@
 
       <div class="col-xs-12 col-sm-6 col-md-6">
         <div class="page-header">
-          <h2>Guide<br><small>You should know what you are doing!</small></h2>
+          <h2><img src="img/icon.png"> Guide<br><small>You should know what you are doing!</small></h2>
         </div>
         <p>- Character maximum is 1000!</p>
         <p>- You can only view the last 20 entries below.</p>
         <p>- The entries get reloaded every 10 seconds.</p>
-        <p>- If you don't insert a passphrase it will use "guestbook".</p>
-        <p>- The fee for an entry is 0 XCR. Please don't spam. :)</p>
+        <p>- If you don't insert a passphrase it will use "guestbook" as the standard passphrase.</p>
+        <p>- The fee for an entry is 0 LISK. This guestbook is for testing purposes only.</p>
 
-        <p><br>If you want to write your own dapps, head to the <a href="https://github.com/crypti/crypti-dapps-docs"><strong>dapp documentation</strong></a>.</p>
+        <p><br>If you want to write your own dapps, head to the <a href="https://lisk.io/documentation?i=lisk-docs/README"><strong>dapp documentation</strong></a>.</p>
       </div>
     </div>
   </div>
@@ -104,8 +104,9 @@
                 if (key < numberOfEntries) {
                     return;
                 }
+                key = key + 1;
                 $("#entryOverview")
-                        .prepend("<table class='table table-bordered'><tr><td class='col-md-1'><strong>#" + key + "</strong></td><td class='col-md-7'><strong>Sender:</strong> " + value.senderId + "</td><td class='col-md-4'><strong>ID:</strong> " + value.blockId.substring(0, 15) + "</td></tr><tr><td colspan='4'>" + value.asset.entry.replace(/[<>]/g,'') + "</td></tr></table>");
+                        .prepend("<table class='table table-bordered'><tr><td class='col-md-1'><strong>#" + key + "</strong></td><td class='col-md-7'><strong>Sender:</strong> " + value.senderId + "</td><td class='col-md-4'><strong>ID:</strong> " + value.blockId.substring(0, 16) + "</td></tr><tr><td colspan='4'>" + value.asset.entry.replace(/[<>]/g,'') + "</td></tr></table>");
             });
         });
     }
