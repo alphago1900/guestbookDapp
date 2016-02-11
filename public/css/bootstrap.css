@@ -1097,12 +1097,12 @@ textarea {
   line-height: inherit;
 }
 a {
-  color: #337ab7;
+  color: #0288d1;
   text-decoration: none;
 }
 a:hover,
 a:focus {
-  color: #23527c;
+  color: #f57c00;
   text-decoration: underline;
 }
 a:focus {
@@ -4219,7 +4219,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 @media (min-width: 768px) {
   .navbar {
-    border-radius: 4px;
+    border-radius: 0px;
   }
 }
 @media (min-width: 768px) {
@@ -4541,15 +4541,15 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 .navbar-default {
-  background-color: #f8f8f8;
-  border-color: #e7e7e7;
+  background-color: #655740;
+  border-color: #655740;
 }
 .navbar-default .navbar-brand {
-  color: #777;
+  color: #dcd6cf;
 }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
-  color: #5e5e5e;
+  color: #dcd6cf;
   background-color: transparent;
 }
 .navbar-default .navbar-text {
