@@ -46,7 +46,7 @@
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-6">
         <div class="page-header">
-          <h2>Write an Entry<br><small>..which is saved in the blockchain permanently!</small></h2>
+          <h2>Write an Entry<br><small>Leave a message on the Lisk Guestbook sidechain.</small></h2>
         </div>
         <form name="public">
           <div class="form-group">
@@ -54,8 +54,8 @@
             <input type="password" class="form-control" id="passphrase" placeholder="Your Passphrase (optional)">
           </div>
           <div class="form-group">
-            <label for="entry">Your Text</label>
-            <textarea rows="4" cols="50" type="text" class="form-control" id="entry" maxlength="1000" placeholder="..."></textarea>
+            <label for="entry">Entry</label>
+            <textarea rows="4" cols="50" type="text" class="form-control" id="entry" maxlength="1000" placeholder=""></textarea>
           </div>
           <button type="button" id="submit" class="col-xs-12 col-sm-12 col-md-12 btn btn-default">Submit</button>
         </form>
@@ -64,15 +64,18 @@
 
       <div class="col-xs-12 col-sm-6 col-md-6">
         <div class="page-header">
-          <h2><img src="images/icon.png"> Guide<br><small>You should know what you are doing!</small></h2>
+          <h2><img src="images/icon.png"> Quick Guide<br><small>A quick guide on how to use this dapp.</small></h2>
         </div>
-        <p>- Character maximum is 1000!</p>
-        <p>- You can only view the last 20 entries below.</p>
-        <p>- The entries get reloaded every 10 seconds.</p>
-        <p>- If you don't insert a passphrase it will use "guestbook" as the standard passphrase.</p>
-        <p>- The fee for an entry is 0 LISK. This guestbook is for testing purposes only.</p>
+        <p>- Entries get reloaded every 10 seconds.</p>
+        <p>- Maximum number of characters is 1000.</p>
+        <p>- Entry listing is restricted to 20 entries at a time.</p>
+        <p>- Entering a passphrase is optional and will default to "guestbook".</p>
+        <p>- Transaction fee is 0 LISK (for testing purposes only).</p>
 
-        <p><br>If you want to write your own dapps, head to the <a href="https://lisk.io/documentation?i=lisk-docs/README"><strong>dapp documentation</strong></a>.</p>
+        <p>
+          <br>Want to learn hown to write your own Lisk dapps?
+          <br>Then head on over to our <a href="https://lisk.io/documentation?i=lisk-docs/README"><strong>documentation page</strong></a> to get yourself started!
+        </p>
       </div>
     </div>
   </div>
