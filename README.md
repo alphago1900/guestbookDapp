@@ -1,28 +1,24 @@
 ### Lisk Guestbook
 
-With the Lisk Guestbook you can immortalize yourself in a sidechain of Lisk. You can use this dapp for testing purposes.
+With the Lisk Guestbook you can immortalize yourself onto a Lisk sidechain. Please note, this dapp is for testing purposes only.
 
 ### Guide
 
-Simply insert your passphrase (optional) and a text into the input fields and press on Submit. Then you have to wait 10 seconds and the text will appear below the line. 
+Simply insert your passphrase (optional) and a text into the input fields and press on Submit. Then wait 10 seconds and the text will appear below the line.
 
-- Character maximum is 1000!
+- Maximum number of characters is 1000.
 
-- You can only view the last 20 entries below.
+- Entry listing is restricted to 20 entries at a time.
 
 - The entries get reloaded every 10 seconds.
 
-- If you don't insert a passphrase it will use "guestbook" as the standard passphrase.
+- Entering a passphrase is optional and will default to "guestbook".
 
-- The fee for an entry is 0 LISK. This guestbook is for testing purposes only.
+- Transaction fee is 0 LISK (for testing purposes only).
 
+### Support
 
-### Troubleshoot
-
-If there are problems, please come to https://lisk.chat/ and ask for @max!
-
-Thank you.
-
+If you encounter any problems using this dapp, please either [submit an issue](https://github.com/MaxKK/guestbookDapp/issues/new) or head on over to https://lisk.chat/ and ask for @max!
 
 ### License
 
