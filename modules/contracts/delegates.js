@@ -63,7 +63,7 @@ Delegates.prototype.verify = function (trs, sender, cb, scope) {
 
 Delegates.prototype.apply = function (trs, sender, cb, scope) {
 	if (sender.balance < trs.fee) {
-		return setImmediate(cb, "Balance has no XCR: " + trs.id);
+		return setImmediate(cb, "Balance has no LISK: " + trs.id);
 	}
 
 	async.series([
