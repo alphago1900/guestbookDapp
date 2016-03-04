@@ -23,7 +23,7 @@ OutsideTransfer.prototype.calculateFee = function (trs) {
 }
 
 OutsideTransfer.prototype.verify = function (trs, sender, cb, scope) {
-	var isAddress = /^[0-9]+[C|c]$/g;
+	var isAddress = /^[0-9]+[L|l]$/g;
 	if (!isAddress.test(trs.recipientId.toLowerCase())) {
 		return cb("TRANSACTIONS.INVALID_RECIPIENT");
 	}
@@ -32,7 +32,7 @@ OutsideTransfer.prototype.verify = function (trs, sender, cb, scope) {
 		return cb("TRANSACTIONS.INVALID_AMOUNT");
 	}
 
-	if (trs.senderPublicKey != modules.blockchain.blocks.genesisBlock().delegate){
+	if (trs.senderPublicKey != modules.blockchain.blocks.genesisBlock().delegate) {
 		return cb("TRANSACTIONS.WRONG_TX_SENDER");
 	}
 
@@ -63,28 +63,28 @@ OutsideTransfer.prototype.getBytes = function (trs) {
 OutsideTransfer.prototype.apply = function (trs, sender, cb, scope) {
 	modules.blockchain.accounts.mergeAccountAndGet({
 		address: trs.recipientId,
-		balance: trs.amount
+		balance: {"LISK": trs.amount}
 	}, cb, scope);
 }
 
 OutsideTransfer.prototype.undo = function (trs, sender, cb, scope) {
 	modules.blockchain.accounts.undoMerging({
 		address: trs.recipientId,
-		balance: trs.amount
+		balance: {"LISK": trs.amount}
 	}, cb, scope);
 }
 
 OutsideTransfer.prototype.applyUnconfirmed = function (trs, sender, cb, scope) {
 	modules.blockchain.accounts.mergeAccountAndGet({
 		address: trs.recipientId,
-		u_balance: trs.amount
+		u_balance: {"LISK": trs.amount}
 	}, cb, scope);
 }
 
 OutsideTransfer.prototype.undoUnconfirmed = function (trs, sender, cb, scope) {
 	modules.blockchain.accounts.undoMerging({
 		address: trs.recipientId,
-		u_balance: trs.amount
+		u_balance: {"LISK": trs.amount}
 	}, cb, scope);
 }
 
@@ -129,7 +129,12 @@ OutsideTransfer.prototype.normalize = function (asset, cb) {
 			}
 		},
 		required: ['outsidetransfer']
-	}, cb)
+	}, function (err) {
+		if (err) {
+			return cb(err[0].message);
+		}
+		cb();
+	})
 }
 
 OutsideTransfer.prototype.onBind = function (_modules) {
