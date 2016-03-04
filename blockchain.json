@@ -102,10 +102,10 @@
 			},
 			{
 				"type": "left outer",
-				"table": "asset_entries",
-				"alias": "gb",
+				"table": "asset_token",
+				"alias": "t_t",
 				"on": {
-					"t.id": "gb.transactionId"
+					"t.id": "t_t.transactionId"
 				}
 			}
 		]
@@ -171,6 +171,11 @@
 				"type": "String",
 				"length": 21,
 				"not_null": true
+			},
+			{
+				"name": "token",
+				"type": "String",
+				"length": 21
 			}
 		],
 		"foreignKeys": [
