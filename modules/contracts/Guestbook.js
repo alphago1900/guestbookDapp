@@ -195,7 +195,7 @@ Guestbook.prototype.list = function (cb, query) {
                 alias: "gb",
                 on: {"t.id": "gb.transactionId"}
             }]
-        }, ['id', 'type', 'senderId', 'senderPublicKey', 'recipientId', 'amount', 'fee', 'signature', 'blockId', 'transactionId', 'entry'], function (err, transactions) {
+        }, ['id', 'type', 'senderId', 'senderPublicKey', 'recipientId', 'amount', 'fee', 'signature', 'blockId', 'token', 'transactionId', 'entry'], function (err, transactions) {
             if (err) {
                 return cb(err.toString());
             }
