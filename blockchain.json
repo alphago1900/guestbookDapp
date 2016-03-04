@@ -107,6 +107,14 @@
 				"on": {
 					"t.id": "t_t.transactionId"
 				}
+			},
+			{
+				"type": "left outer",
+				"table": "asset_entries",
+				"alias": "gb",
+				"on": {
+					"t.id": "gb.transactionId"
+				}
 			}
 		]
 	},
