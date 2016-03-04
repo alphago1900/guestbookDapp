@@ -65,6 +65,16 @@
 		"handler": "blockchain.delegates.addDelegates"
 	},
 	{
+		"path": "/tokens",
+		"method": "put",
+		"handler": "blockchain.token.addToken"
+	},
+	{
+		"path": "/tokens",
+		"method": "get",
+		"handler": "blockchain.token.getTokens"
+	},
+	{
 		"path": "/entries/add",
 		"method": "put",
 		"handler": "contracts.Guestbook.add"
