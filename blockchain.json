@@ -100,14 +100,14 @@
 					"t.id": "t_d.transactionId"
 				}
 			},
-            {
-              "type": "left outer",
-              "table": "asset_entries",
-              "alias": "gb",
-              "on": {
-                "t.id": "gb.transactionId"
-              }
-            }
+			{
+				"type": "left outer",
+				"table": "asset_entries",
+				"alias": "gb",
+				"on": {
+					"t.id": "gb.transactionId"
+				}
+			}
 		]
 	},
 	{
@@ -300,31 +300,31 @@
 			}
 		]
 	},
-    {
-      "table": "asset_entries",
-      "alias": "gb",
-      "type": "table",
-      "tableFields": [
-        {
-          "name": "entry",
-          "type": "String",
-          "length": 2000,
-          "not_null": true
-        },
-        {
-          "name": "transactionId",
-          "type": "String",
-          "length": 21,
-          "not_null": true
-        }
-      ],
-      "foreignKeys": [
-        {
-          "field": "transactionId",
-          "table": "transactions",
-          "table_field": "id",
-          "on_delete": "cascade"
-        }
-      ]
-    }
+	{
+		"table": "asset_entries",
+		"alias": "gb",
+		"type": "table",
+		"tableFields": [
+			{
+				"name": "entry",
+				"type": "String",
+				"length": 2000,
+				"not_null": true
+			},
+			{
+				"name": "transactionId",
+				"type": "String",
+				"length": 21,
+				"not_null": true
+			}
+		],
+		"foreignKeys": [
+			{
+				"field": "transactionId",
+				"table": "transactions",
+				"table_field": "id",
+				"on_delete": "cascade"
+			}
+		]
+	}
 ]
