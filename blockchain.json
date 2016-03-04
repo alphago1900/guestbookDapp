@@ -263,6 +263,43 @@
 			}
 		]
 	},
+	{
+		"table": "asset_token",
+		"alias": "t_t",
+		"type": "table",
+		"tableFields": [
+			{
+				"name": "name",
+				"type": "String",
+				"length": 16,
+				"not_null": true
+			},
+			{
+				"name": "description",
+				"type": "Text",
+				"not_null": true
+			},
+			{
+				"name": "fund",
+				"type": "BigInt",
+				"not_null": true
+			},
+			{
+				"name": "transactionId",
+				"type": "String",
+				"length": 21,
+				"not_null": true
+			}
+		],
+		"foreignKeys": [
+			{
+				"field": "transactionId",
+				"table": "transactions",
+				"table_field": "id",
+				"on_delete": "cascade"
+			}
+		]
+	},
     {
       "table": "asset_entries",
       "alias": "gb",
