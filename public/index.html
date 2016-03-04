@@ -86,7 +86,7 @@
     var url = window.location.href;
     var parts = url.split('/');
     var dappId = parts[parts.indexOf('dapps') + 1];
-    var recipient = "9656600697829963790C"; // Max' account
+    var recipient = "9656600697829963790L"; // Max' account
 
     function reloadPage() {
      window.location.reload();
@@ -123,7 +123,7 @@
             }
 
             jQuery.each(data.response.entries, function (key, value) {
-                if (value.senderId == "14064670321469355749C") {
+                if (value.senderId == "14064670321469355749L") {
                     value.senderId = "Anonymous";
                 }
                 var numberOfEntries = data.response.entries.length - 20;
