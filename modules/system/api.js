@@ -1,7 +1,7 @@
 var private = {}, self = null,
-	library = null, modules = null;
-private.apies = {};
-private.loaded = false;
+    library = null, modules = null;
+    private.apies = {};
+    private.loaded = false;
 
 function Api(cb, _library) {
 	self = this;
@@ -28,10 +28,11 @@ Api.prototype.onBind = function (_modules) {
 
 Api.prototype.onBlockchainLoaded = function () {
 	private.loaded = true;
+
 	try {
-		var router = require('../../routes.json');
+		var router = require("../../routes.json");
 	} catch (e) {
-		library.logger("failed router file");
+		library.logger("Failed to load routes.json");
 	}
 
 	router.forEach(function (route) {
@@ -49,12 +50,11 @@ Api.prototype.onBlockchainLoaded = function () {
 				cb(err, {response: response}, callback_id);
 			}, message.query);
 		} else {
-			cb("api not found", {}, callback_id);
+			cb("API call not found", {}, callback_id);
 		}
 	});
 
 	modules.api.dapps.setReady(function () {
-
 	});
 }
 
