@@ -8,6 +8,28 @@ function Guestbook(cb, _library) {
 	cb(null, self);
 }
 
+var aliasedFields = [
+	{ field: "t.id", alias: "id" },
+	{ field: "t.blockId", alias: "blockId" },
+	{ field: "t.senderId", alias: "senderId" },
+	{ field: "t.recipientId", alias: "recipientId" },
+	{ field: "t.amount", alias: "amount" },
+	{ field: "t.fee", alias: "fee" },
+	{ field: "t.timestamp", alias: "timestamp" },
+	{ field: "entry", alias: "entry" }
+];
+
+var fieldMap = {
+	"id": String,
+	"blockId": String,
+	"senderId": String,
+	"recipientId": String,
+	"amount": Number,
+	"fee": Number,
+	"timestamp": Date,
+	"entry": String
+};
+
 Guestbook.prototype.create = function (data, trs) {
 	trs.recipientId = data.recipientId;
 	trs.asset = {
@@ -184,6 +206,7 @@ Guestbook.prototype.list = function (cb, query) {
         // Select from transactions table and join entries from the asset_entries table
         modules.api.sql.select({
             table: "transactions",
+            fields: aliasedFields,
             alias: "t",
             condition: {
                 recipientId: query.recipientId,
@@ -193,9 +216,9 @@ Guestbook.prototype.list = function (cb, query) {
                 type: 'left outer',
                 table: 'asset_entries',
                 alias: "gb",
-                on: {"t.id": "gb.transactionId"}
+                on: {"t.\"id\"": "gb.\"transactionId\""}
             }]
-        }, ['id', 'type', 'senderId', 'senderPublicKey', 'recipientId', 'amount', 'fee', 'signature', 'blockId', 'token', 'transactionId', 'entry'], function (err, transactions) {
+        }, fieldMap, function (err, transactions) {
             if (err) {
                 return cb(err.toString());
             }
