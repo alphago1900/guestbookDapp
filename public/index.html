@@ -118,7 +118,7 @@
     function getEntries() {
         jQuery.get("/api/dapps/" + dappId + "/api/entries/list?recipientId=" + recipient, function (data) {
             $("#entryOverview").html('');
-            if (data.error == "DAPPS.DAPPS_NOT_READY") {
+            if (data.error == "Dapp not ready") {
                 alert("Dapp offline! The master node which computes your instance of this dapp is offline. Please reload the window!");
             }
 
