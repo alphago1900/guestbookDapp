@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 var util = require('util');
 var Insidetransfer = require('./insidetransfer.js');
+=======
+var util = require("util");
+var Insidetransfer = require("./insidetransfer.js");
+>>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 
 var private = {}, self = null,
 	library = null, modules = null;
@@ -19,7 +24,11 @@ MyAsset.prototype.create = function (data, trs) {
 
 MyAsset.prototype.getBytes = function (trs) {
 	try {
+<<<<<<< HEAD
 		var buf = new Buffer(trs.asset.myasset.text, 'utf8');
+=======
+		var buf = new Buffer(trs.asset.myasset.text, "utf8");
+>>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 	} catch (e) {
 		throw Error(e.toString());
 	}
@@ -33,7 +42,11 @@ MyAsset.prototype.verify = function (trs, sender, cb, scope) {
 			return cb(err);
 		}
 		if (!trs.asset.myasset.text) {
+<<<<<<< HEAD
 			return cb("TRANSACTIONS.EMPTY_TEXT");
+=======
+			return cb("Invalid transaction asset");
+>>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 		}
 		cb(null, trs)
 	}, scope);
@@ -72,4 +85,8 @@ MyAsset.prototype.onBind = function (_modules) {
 
 util.inherits(MyAsset, Insidetransfer);
 
+<<<<<<< HEAD
 module.exports = MyAsset;
+=======
+module.exports = MyAsset;
+>>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b

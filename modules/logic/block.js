@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 var ByteBuffer = require('bytebuffer');
 var crypto = require('crypto-browserify');
 var bignum = require('browserify-bignum');
+=======
+var ByteBuffer = require("bytebuffer");
+var crypto = require("crypto-browserify");
+var bignum = require("browserify-bignum");
+>>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 
 var private = {}, self = null,
 	library = null, modules = null;
@@ -25,7 +31,11 @@ Block.prototype.getBytes = function (block, withSignature) {
 	var bb = new ByteBuffer(size, true);
 
 	if (block.prevBlockId) {
+<<<<<<< HEAD
 		var pb = bignum(block.prevBlockId).toBuffer({size: '8'});
+=======
+		var pb = bignum(block.prevBlockId).toBuffer({size: "8"});
+>>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 		for (var i = 0; i < 8; i++) {
 			bb.writeByte(pb[i]);
 		}
@@ -39,17 +49,29 @@ Block.prototype.getBytes = function (block, withSignature) {
 	bb.writeInt(block.timestamp);
 	bb.writeInt(block.payloadLength);
 
+<<<<<<< HEAD
 	var ph = new Buffer(block.payloadHash, 'hex');
+=======
+	var ph = new Buffer(block.payloadHash, "hex");
+>>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 	for (var i = 0; i < ph.length; i++) {
 		bb.writeByte(ph[i]);
 	}
 
+<<<<<<< HEAD
 	var pb = new Buffer(block.delegate, 'hex');
+=======
+	var pb = new Buffer(block.delegate, "hex");
+>>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 	for (var i = 0; i < pb.length; i++) {
 		bb.writeByte(pb[i]);
 	}
 
+<<<<<<< HEAD
 	pb = bignum(block.pointId).toBuffer({size: '8'});
+=======
+	pb = bignum(block.pointId).toBuffer({size: "8"});
+>>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 	for (var i = 0; i < 8; i++) {
 		bb.writeByte(pb[i]);
 	}
@@ -59,7 +81,11 @@ Block.prototype.getBytes = function (block, withSignature) {
 	bb.writeInt(block.count);
 
 	if (withSignature && block.signature) {
+<<<<<<< HEAD
 		var pb = new Buffer(block.signature, 'hex');
+=======
+		var pb = new Buffer(block.signature, "hex");
+>>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 		for (var i = 0; i < pb.length; i++) {
 			bb.writeByte(pb[i]);
 		}
@@ -104,7 +130,11 @@ Block.prototype.save = function (block, cb) {
 
 Block.prototype.normalize = function (block, cb) {
 	for (var i in block) {
+<<<<<<< HEAD
 		if (block[i] === null || typeof block[i] == 'undefined') {
+=======
+		if (block[i] === null || typeof block[i] == "undefined") {
+>>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 			delete block[i];
 		}
 	}
@@ -146,7 +176,11 @@ Block.prototype.normalize = function (block, cb) {
 				type: "integer"
 			}
 		},
+<<<<<<< HEAD
 		required: ['id', 'timestamp', 'payloadLength', 'payloadHash', 'pointId', 'pointHeight', 'delegate', 'signature', 'count']
+=======
+		required: ["id", "timestamp", "payloadLength", "payloadHash", "pointId", "pointHeight", "delegate", "signature", "count"]
+>>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 	}, function (err) {
 		if (err) {
 			return cb(err[0].message);
@@ -176,4 +210,8 @@ Block.prototype.onBind = function (_modules) {
 }
 
 //export
+<<<<<<< HEAD
 module.exports = Block;
+=======
+module.exports = Block;
+>>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b

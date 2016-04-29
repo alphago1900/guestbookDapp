@@ -107,6 +107,17 @@
 				"on": {
 					"t.id": "t_t.transactionId"
 				}
+<<<<<<< HEAD
+=======
+			},
+			{
+				"type": "left outer",
+				"table": "asset_entries",
+				"alias": "gb",
+				"on": {
+					"t.id": "gb.transactionId"
+				}
+>>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 			}
 		]
 	},
@@ -304,5 +315,37 @@
 				"on_delete": "cascade"
 			}
 		]
+<<<<<<< HEAD
 	}
 ]
+=======
+	},
+	{
+		"table": "asset_entries",
+		"alias": "gb",
+		"type": "table",
+		"tableFields": [
+			{
+				"name": "entry",
+				"type": "String",
+				"length": 2000,
+				"not_null": true
+			},
+			{
+				"name": "transactionId",
+				"type": "String",
+				"length": 21,
+				"not_null": true
+			}
+		],
+		"foreignKeys": [
+			{
+				"field": "transactionId",
+				"table": "transactions",
+				"table_field": "id",
+				"on_delete": "cascade"
+			}
+		]
+	}
+]
+>>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b

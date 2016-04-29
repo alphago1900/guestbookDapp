@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 var util = require('util');
 var extend = require('extend');
+=======
+var util = require("util");
+var extend = require("extend");
+>>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 
 function Sequence(config) {
 	var _default = {
@@ -30,11 +35,19 @@ function Sequence(config) {
 }
 
 Sequence.prototype.add = function (worker, args, done) {
+<<<<<<< HEAD
 	if (!done && args && typeof(args) == 'function') {
 		done = args;
 		args = undefined;
 	}
 	if (worker && typeof(worker) == 'function') {
+=======
+	if (!done && args && typeof(args) == "function") {
+		done = args;
+		args = undefined;
+	}
+	if (worker && typeof(worker) == "function") {
+>>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 		var task = {worker: worker, done: done};
 		if (util.isArray(args)) {
 			task.args = args;
@@ -47,4 +60,8 @@ Sequence.prototype.count = function () {
 	return this.sequence.length;
 }
 
+<<<<<<< HEAD
 module.exports = Sequence;
+=======
+module.exports = Sequence;
+>>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b

@@ -25,6 +25,7 @@ OutsideTransfer.prototype.calculateFee = function (trs) {
 OutsideTransfer.prototype.verify = function (trs, sender, cb, scope) {
 	var isAddress = /^[0-9]+[L|l]$/g;
 	if (!trs.recipientId || !isAddress.test(trs.recipientId)) {
+<<<<<<< HEAD
 		return cb("TRANSACTIONS.INVALID_RECIPIENT");
 	}
 
@@ -34,6 +35,17 @@ OutsideTransfer.prototype.verify = function (trs, sender, cb, scope) {
 
 	if (trs.senderPublicKey != modules.blockchain.blocks.genesisBlock().delegate) {
 		return cb("TRANSACTIONS.WRONG_TX_SENDER");
+=======
+		return cb("Invalid recipient");
+	}
+
+	if (trs.amount <= 0) {
+		return cb("Invalid transaction amount");
+	}
+
+	if (trs.senderPublicKey != modules.blockchain.blocks.genesisBlock().delegate) {
+		return cb("Sender is not a delegate");
+>>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 	}
 
 	modules.api.sql.select({
@@ -44,7 +56,11 @@ OutsideTransfer.prototype.verify = function (trs, sender, cb, scope) {
 		fields: ["id"]
 	}, function (err, found) {
 		if (err || found.length) {
+<<<<<<< HEAD
 			return cb("reference transaction exists in dapp");
+=======
+			return cb("Transaction already exists");
+>>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 		}
 		cb(null, trs);
 	});
@@ -52,7 +68,11 @@ OutsideTransfer.prototype.verify = function (trs, sender, cb, scope) {
 
 OutsideTransfer.prototype.getBytes = function (trs) {
 	try {
+<<<<<<< HEAD
 		var buf = new Buffer(trs.asset.outsidetransfer.src_id, 'utf8');
+=======
+		var buf = new Buffer(trs.asset.outsidetransfer.src_id, "utf8");
+>>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 	} catch (e) {
 		throw Error(e.toString());
 	}
@@ -125,10 +145,17 @@ OutsideTransfer.prototype.normalize = function (asset, cb) {
 						minLength: 1
 					}
 				},
+<<<<<<< HEAD
 				required: ['src_id']
 			}
 		},
 		required: ['outsidetransfer']
+=======
+				required: ["src_id"]
+			}
+		},
+		required: ["outsidetransfer"]
+>>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 	}, function (err) {
 		if (err) {
 			return cb(err[0].message);

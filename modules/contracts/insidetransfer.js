@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 var async = require('async');
 var constants = require('../helpers/constants.js');
+=======
+var async = require("async");
+var constants = require("../helpers/constants.js");
+>>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 
 var private = {}, self = null,
 	library = null, modules = null;
@@ -29,17 +34,29 @@ InsideTransfer.prototype.calculateFee = function (trs) {
 InsideTransfer.prototype.verify = function (trs, sender, cb, scope) {
 	var isAddress = /^[0-9]+[L|l]$/g;
 	if (!trs.recipientId || !isAddress.test(trs.recipientId)) {
+<<<<<<< HEAD
 		return cb("TRANSACTIONS.INVALID_RECIPIENT");
 	}
 
 	if (trs.amount <= 0) {
 		return cb("TRANSACTIONS.INVALID_AMOUNT");
+=======
+		return cb("Invalid recipient");
+	}
+
+	if (trs.amount <= 0) {
+		return cb("Invalid transaction amount");
+>>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 	}
 
 	if (trs.token != "LISK") {
 		var tokenId = modules.contracts.token.findToken(trs.token);
 		if (!tokenId) {
+<<<<<<< HEAD
 			return cb("Token doesn't exist");
+=======
+			return cb("Token does not exist");
+>>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 		}
 	}
 
@@ -124,6 +141,7 @@ InsideTransfer.prototype.undo = function (trs, sender, cb, scope) {
 InsideTransfer.prototype.applyUnconfirmed = function (trs, sender, cb, scope) {
 	if (trs.token == "LISK") {
 		if (sender.u_balance[trs.token] < trs.amount + trs.fee) {
+<<<<<<< HEAD
 			return setImmediate(cb, "Balance has no LISK: " + trs.id);
 		}
 	} else {
@@ -132,6 +150,16 @@ InsideTransfer.prototype.applyUnconfirmed = function (trs, sender, cb, scope) {
 		}
 		if (sender.u_balance["LISK"] < trs.fee) {
 			return setImmediate(cb, "Balance has no LISK: " + trs.id);
+=======
+			return setImmediate(cb, "Account does not have enough LISK: " + trs.id);
+		}
+	} else {
+		if (sender.u_balance[trs.token] < trs.amount) {
+			return setImmediate(cb, "Account does not have enough " + trs.token + ": " + trs.id);
+		}
+		if (sender.u_balance["LISK"] < trs.fee) {
+			return setImmediate(cb, "Account does not have enough LISK: " + trs.id);
+>>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 		}
 	}
 

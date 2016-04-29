@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 var async = require('async');
 var crypto = require('crypto-browserify');
 var slots = require('../helpers/slots.js');
+=======
+var async = require("async");
+var crypto = require("crypto-browserify");
+var slots = require("../helpers/slots.js");
+>>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 
 var private = {}, self = null,
 	library = null, modules = null;
@@ -21,7 +27,11 @@ private.loop = function (point, cb) {
 		}
 
 		if (!private.loaded) {
+<<<<<<< HEAD
 			library.logger('loop', 'exit: syncing');
+=======
+			library.logger("Loop", "exit: syncing");
+>>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 			return setImmediate(cb);
 		}
 
@@ -29,13 +39,21 @@ private.loop = function (point, cb) {
 		var lastBlock = modules.blockchain.blocks.getLastBlock();
 
 		if (currentSlot == slots.getSlotNumber(lastBlock.timestamp)) {
+<<<<<<< HEAD
 			//library.logger.log('loop', 'exit: lastBlock is in the same slot');
+=======
+			// library.logger.log("Loop", "exit: lastBlock is in the same slot");
+>>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 			return setImmediate(cb);
 		}
 
 		var currentBlockData = private.getState(executor, point.height);
 		if (currentBlockData === null) {
+<<<<<<< HEAD
 			library.logger('loop', 'skip slot');
+=======
+			library.logger("Loop", "exit: skipping slot");
+>>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 			return setImmediate(cb);
 		}
 
@@ -47,10 +65,17 @@ private.loop = function (point, cb) {
 			}
 		}, function (err) {
 			if (err) {
+<<<<<<< HEAD
 				library.logger("Problem in block generation", err);
 			} else {
 				var lastBlock = modules.blockchain.blocks.getLastBlock();
 				library.logger("new dapp block id: " + lastBlock.id + " height: " + lastBlock.height + " via point: " + lastBlock.pointHeight);
+=======
+				library.logger("Failed to generate block", err);
+			} else {
+				var lastBlock = modules.blockchain.blocks.getLastBlock();
+				library.logger("New dapp block id: " + lastBlock.id + " height: " + lastBlock.height + " via point: " + lastBlock.pointHeight);
+>>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 			}
 			cb(err);
 		})
@@ -85,7 +110,11 @@ Round.prototype.generateDelegateList = function (height) {
 
 	var delegates = private.delegates.slice(0);
 
+<<<<<<< HEAD
 	var currentSeed = crypto.createHash('sha256').update(seedSource, 'utf8').digest();
+=======
+	var currentSeed = crypto.createHash("sha256").update(seedSource, "utf8").digest();
+>>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 	for (var i = 0, delCount = delegates.length; i < delCount; i++) {
 		for (var x = 0; x < 4 && i < delCount; i++, x++) {
 			var newIndex = currentSeed[x] % delCount;
@@ -93,7 +122,11 @@ Round.prototype.generateDelegateList = function (height) {
 			delegates[newIndex] = delegates[i];
 			delegates[i] = b;
 		}
+<<<<<<< HEAD
 		currentSeed = crypto.createHash('sha256').update(currentSeed).digest();
+=======
+		currentSeed = crypto.createHash("sha256").update(currentSeed).digest();
+>>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 	}
 
 	return delegates;
@@ -121,10 +154,18 @@ Round.prototype.onMessage = function (query) {
 		var block = query.message;
 		private.loop(block, function (err) {
 			if (err) {
+<<<<<<< HEAD
 				library.logger("loop error", err)
+=======
+				library.logger("Loop error", err)
+>>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 			}
 		});
 	}
 }
 
+<<<<<<< HEAD
 module.exports = Round;
+=======
+module.exports = Round;
+>>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
