@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-var bignum = require('browserify-bignum');
-var async = require('async');
-var ip = require('ip')
-=======
 var bignum = require("browserify-bignum");
 var async = require("async");
 var ip = require("ip")
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 
 var private = {}, self = null,
 	library = null, modules = null;
@@ -65,11 +59,7 @@ private.findUpdate = function (lastBlock, peer, cb) {
 							modules.blockchain.blocks.deleteBlocksBefore(commonBlock, cb);
 						},
 						function (cb) {
-<<<<<<< HEAD
-							console.log("apply and save blocks", blocks.map(function (block) {
-=======
 							console.log("Applying and saving blocks", blocks.map(function (block) {
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 								return block.height
 							}).join(","))
 							async.series([
@@ -91,11 +81,7 @@ private.findUpdate = function (lastBlock, peer, cb) {
 							return cb();
 						}
 						library.logger("sync", err);
-<<<<<<< HEAD
-						//TODO:rollback after last error block
-=======
 						// TODO: Rollback after last error block
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 						modules.blockchain.blocks.deleteBlocksBefore(commonBlock, cb);
 					});
 				}, sandbox);
@@ -128,16 +114,9 @@ private.blockSync = function (cb) {
 		modules.api.transport.getRandomPeer("get", "/blocks/height", null, function (err, res) {
 			if (!err && res.body && res.body.success) {
 				if (bignum(lastBlock.height).lt(res.body.response)) {
-<<<<<<< HEAD
-					console.log("found blocks at " + ip.fromLong(res.peer.ip) + ":" + res.peer.port);
-					private.findUpdate(lastBlock, res.peer, cb);
-				} else {
-					//console.log("doesn't found blocks at " + ip.fromLong(res.peer.ip) + ":" + res.peer.port);
-=======
 					console.log("Received blocks from peer: " + res.peer.ip + ":" + res.peer.port);
 					private.findUpdate(lastBlock, res.peer, cb);
 				} else {
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 					setImmediate(cb);
 				}
 			} else {
@@ -220,19 +199,11 @@ private.withdrawalSync = function (cb) {
 								"table": "blocks",
 								"alias": "b",
 								"on": {
-<<<<<<< HEAD
-									"b.id": "t.blockId",
-								}
-							}
-						],
-						fields: [{"b.height": "height"}],
-=======
 									"b.\"id\"": "t.\"blockId\"",
 								}
 							}
 						],
 						fields: [{"b.\"height\"": "height"}],
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 						condition: {
 							"t.type": 2,
 							"t.id": res.id
@@ -252,19 +223,6 @@ private.withdrawalSync = function (cb) {
 									"table": "blocks",
 									"alias": "b",
 									"on": {
-<<<<<<< HEAD
-										"b.id": "t.blockId",
-									}
-								}
-							],
-							fields: [{"t.amount": "amount"}, {"t.id": "id"}, {"t.senderPublicKey": "senderPublicKey"}],
-							condition: {
-								"type": 2,
-								"b.height": {$gt: res[0].height}
-							},
-							sort: {
-								"b.height": 1
-=======
 										"b.\"id\"": "t.\"blockId\"",
 									}
 								}
@@ -276,7 +234,6 @@ private.withdrawalSync = function (cb) {
 							},
 							sort: {
 								"b.\"height\"": 1
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 							}
 						}, {amount: Number, id: String, senderPublicKey: String}, function (err, transactions) {
 							if (err) {
@@ -296,28 +253,16 @@ private.withdrawalSync = function (cb) {
 								"table": "blocks",
 								"alias": "b",
 								"on": {
-<<<<<<< HEAD
-									"b.id": "t.blockId",
-								}
-							}
-						],
-						fields: [{"t.amount": "amount"}, {"t.id": "id"}, {"t.senderPublicKey": "senderPublicKey"}],
-=======
 									"b.\"id\"": "t.\"blockId\"",
 								}
 							}
 						],
 						fields: [{"t.\"amount\"": "amount"}, {"t.\"id\"": "id"}, {"t.\"senderPublicKey\"": "senderPublicKey"}],
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 						condition: {
 							"type": 2
 						},
 						sort: {
-<<<<<<< HEAD
-							"b.height": 1
-=======
 							"b.\"height\"": 1
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 						}
 					}, {amount: Number, id: String, senderPublicKey: String}, function (err, transactions) {
 						if (err) {
@@ -346,39 +291,23 @@ private.balanceSync = function (cb) {
 						"table": "blocks",
 						"alias": "b",
 						"on": {
-<<<<<<< HEAD
-							"b.id": "t.blockId"
-=======
 							"b.\"id\"": "t.\"blockId\""
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 						}
 					}, {
 						"type": "inner",
 						"table": "asset_dapptransfer",
 						"alias": "t_dt",
 						"on": {
-<<<<<<< HEAD
-							"t.id": "t_dt.transactionId"
-						}
-					}
-				],
-				fields: [{"t_dt.src_id": "id"}],
-=======
 							"t.\"id\"": "t_dt.\"transactionId\""
 						}
 					}
 				],
 				fields: [{"t_dt.\"src_id\"": "id"}],
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 				condition: {
 					type: 1
 				},
 				sort: {
-<<<<<<< HEAD
-					"b.height": -1
-=======
 					"b.\"height\"": -1
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 				},
 				limit: 1
 			}, {id: String}, function (err, found) {
@@ -412,11 +341,7 @@ private.balanceSync = function (cb) {
 								});
 								modules.blockchain.transactions.processUnconfirmedTransaction(trs, function (err) {
 									if (err) {
-<<<<<<< HEAD
-										library.logger("processUnconfirmedTransaction error", err)
-=======
 										library.logger("Failed to process unconfirmed transaction", err)
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 									}
 									cb(err);
 								});
@@ -438,22 +363,14 @@ Sync.prototype.onBind = function (_modules) {
 Sync.prototype.onBlockchainLoaded = function () {
 	setImmediate(function nextWithdrawalSync() {
 		library.sequence.add(private.withdrawalSync, function (err) {
-<<<<<<< HEAD
-			err && library.logger('withdrawalSync timer', err);
-=======
 			err && library.logger("Sync#withdrawalSync timer", err);
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 			setTimeout(nextWithdrawalSync, 30 * 1000)
 		});
 	});
 
 	setImmediate(function nextBalanceSync() {
 		library.sequence.add(private.balanceSync, function (err) {
-<<<<<<< HEAD
-			err && library.logger('balanceSync timer', err);
-=======
 			err && library.logger("Sync#balanceSync timer", err);
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 
 			setTimeout(nextBalanceSync, 30 * 1000)
 		});
@@ -461,11 +378,7 @@ Sync.prototype.onBlockchainLoaded = function () {
 
 	setImmediate(function nextBlockSync() {
 		library.sequence.add(private.blockSync, function (err) {
-<<<<<<< HEAD
-			err && library.logger('blockSync timer', err);
-=======
 			err && library.logger("Sync#blockSync timer", err);
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 
 			setTimeout(nextBlockSync, 10 * 1000)
 		});
@@ -473,11 +386,7 @@ Sync.prototype.onBlockchainLoaded = function () {
 
 	setImmediate(function nextU_TransactionsSync() {
 		library.sequence.add(private.transactionsSync, function (err) {
-<<<<<<< HEAD
-			err && library.logger('transactionsSync timer', err);
-=======
 			err && library.logger("Sync#transactionsSync timer", err);
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 
 			setTimeout(nextU_TransactionsSync, 5 * 1000)
 		});
@@ -485,19 +394,11 @@ Sync.prototype.onBlockchainLoaded = function () {
 
 	setImmediate(function nextMultisigSync() {
 		library.sequence.add(private.loadMultisignatures, function (err) {
-<<<<<<< HEAD
-			err && library.logger('multisign timer', err);
-=======
 			err && library.logger("Sync#loadMultisignatures timer", err);
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 
 			setTimeout(nextMultisigSync, 10 * 1000);
 		});
 	});
 }
 
-<<<<<<< HEAD
 module.exports = Sync;
-=======
-module.exports = Sync;
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b

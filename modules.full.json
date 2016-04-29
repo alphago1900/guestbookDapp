@@ -24,15 +24,6 @@
 	"system/background": "./modules/system/background.js",
 	"system/api": "./modules/system/api.js",
 	"system/sync": "./modules/system/sync.js",
-<<<<<<< HEAD
-    "contracts/insidetransfer": "./modules/contracts/insidetransfer.js",
-	"contracts/outsidetransfer": "./modules/contracts/outsidetransfer.js",
-	"contracts/myasset": "./modules/contracts/myasset.js",
-	"contracts/delegates": "./modules/contracts/delegates.js",
-  	"contracts/withdrawaltransfer" : "./modules/contracts/withdrawaltransfer.js",
-	"contracts/token": "./modules/contracts/token.js"
-}
-=======
 	"contracts/insidetransfer": "./modules/contracts/insidetransfer.js",
 	"contracts/outsidetransfer": "./modules/contracts/outsidetransfer.js",
 	"contracts/myasset": "./modules/contracts/myasset.js",
@@ -41,4 +32,3 @@
 	"contracts/token": "./modules/contracts/token.js",
 	"contracts/Guestbook": "./modules/contracts/Guestbook.js"
 }
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b

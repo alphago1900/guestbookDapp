@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-var util = require('util');
-var async = require('async');
-var constants = require('../helpers/constants.js');
-=======
 var util = require("util");
 var async = require("async");
 var constants = require("../helpers/constants.js");
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 
 var private = {}, self = null,
 	library = null, modules = null;
@@ -35,11 +29,7 @@ Delegates.prototype.calculateFee = function (trs) {
 
 Delegates.prototype.getBytes = function (trs) {
 	try {
-<<<<<<< HEAD
-		var buf = new Buffer(trs.asset.delegates.list.join(","), 'utf8');
-=======
 		var buf = new Buffer(trs.asset.delegates.list.join(","), "utf8");
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 	} catch (e) {
 		throw Error(e.toString());
 	}
@@ -49,17 +39,6 @@ Delegates.prototype.getBytes = function (trs) {
 
 Delegates.prototype.verify = function (trs, sender, cb, scope) {
 	if (trs.recipientId) {
-<<<<<<< HEAD
-		return cb("TRANSACTIONS.INVALID_RECIPIENT");
-	}
-
-	if (trs.amount != 0) {
-		return cb("TRANSACTIONS.INVALID_AMOUNT");
-	}
-
-	if (!trs.asset.delegates.list || !trs.asset.delegates.list.length) {
-		return cb("TRANSACTIONS.EMPTY_DELEGATES");
-=======
 		return cb("Invalid recipient");
 	}
 
@@ -69,34 +48,21 @@ Delegates.prototype.verify = function (trs, sender, cb, scope) {
 
 	if (!trs.asset.delegates.list || !trs.asset.delegates.list.length) {
 		return cb("No delegates found");
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 	}
 
 	modules.api.dapps.getGenesis(function (err, res) {
 		if (trs.senderId != res.authorId) {
-<<<<<<< HEAD
-			return cb("TRANSACTIONS.DAPP_AUTHOR");
-=======
 			return cb("Failed to match sender with author");
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 		} else {
 			cb(null, trs);
 
 		}
 	});
-<<<<<<< HEAD
-
-=======
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 }
 
 Delegates.prototype.apply = function (trs, sender, cb, scope) {
 	if (sender.balance["LISK"] < trs.fee) {
-<<<<<<< HEAD
-		return setImmediate(cb, "Account has no Lisk: " + trs.id);
-=======
 		return setImmediate(cb, "Account has no LISK: " + trs.id);
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 	}
 
 	async.series([
@@ -129,11 +95,7 @@ Delegates.prototype.undo = function (trs, sender, cb, scope) {
 
 Delegates.prototype.applyUnconfirmed = function (trs, sender, cb, scope) {
 	if (sender.u_balance["LISK"] < trs.fee) {
-<<<<<<< HEAD
-		return setImmediate(cb, 'Account has no LISK: ' + trs.id);
-=======
 		return setImmediate(cb, "Account has no LISK: " + trs.id);
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 	}
 
 	async.series([

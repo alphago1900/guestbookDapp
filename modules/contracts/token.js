@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-var util = require('util');
-var async = require('async');
-var constants = require('../helpers/constants.js');
-=======
 var util = require("util");
 var async = require("async");
 var constants = require("../helpers/constants.js");
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 
 var private = {}, self = null,
 	library = null, modules = null;
@@ -39,11 +33,7 @@ Token.prototype.calculateFee = function (trs) {
 
 Token.prototype.getBytes = function (trs) {
 	try {
-<<<<<<< HEAD
-		var buf = new Buffer(trs.asset.token.name + trs.asset.token.description + trs.asset.token.fund, 'utf8');
-=======
 		var buf = new Buffer(trs.asset.token.name + trs.asset.token.description + trs.asset.token.fund, "utf8");
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 	} catch (e) {
 		throw Error(e.toString());
 	}
@@ -53,24 +43,6 @@ Token.prototype.getBytes = function (trs) {
 
 Token.prototype.verify = function (trs, sender, cb, scope) {
 	if (trs.recipientId) {
-<<<<<<< HEAD
-		return cb("TRANSACTIONS.INVALID_RECIPIENT");
-	}
-	if (trs.amount != 0) {
-		return cb("TRANSACTIONS.INVALID_AMOUNT");
-	}
-	if (!trs.asset.token.name) {
-		return cb("TRANSACTIONS.EMPTY_NAME");
-	}
-	if (trs.asset.token.name.length > 16) {
-		return cb("Token name is more then 16 symbols");
-	}
-	if (!trs.asset.token.description) {
-		return cb("TRANSACTIONS.EMPTY_DESCRIPTION");
-	}
-	if (typeof trs.asset.token.fund != "number") {
-		return cb("TRANSACTIONS.EMPTY_FUND");
-=======
 		return cb("Invalid recipient");
 	}
 	if (trs.amount != 0) {
@@ -87,16 +59,11 @@ Token.prototype.verify = function (trs, sender, cb, scope) {
 	}
 	if (typeof trs.asset.token.fund != "number") {
 		return cb("Invalid tokek fund");
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 	}
 
 	var isToken = /^[A-Z]+$/g;
 	if (!isToken.test(trs.asset.token.name)){
-<<<<<<< HEAD
-		return setImmediate(cb, 'Token has wrong hame');
-=======
 		return setImmediate(cb, "Invalid token name");
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 	}
 
 	cb(null, trs);
@@ -107,11 +74,7 @@ Token.prototype.apply = function (trs, sender, cb, scope) {
 	private.tokens[trs.asset.token.name] = trs.id;
 
 	if (sender.balance["LISK"] < trs.fee) {
-<<<<<<< HEAD
-		return setImmediate(cb, "Balance has no LISK: " + trs.id);
-=======
 		return setImmediate(cb, "Account does not have enouh LISK: " + trs.id);
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 	}
 
 	async.series([
@@ -158,19 +121,11 @@ Token.prototype.undo = function (trs, sender, cb, scope) {
 
 Token.prototype.applyUnconfirmed = function (trs, sender, cb, scope) {
 	if (sender.u_balance["LISK"] < trs.fee) {
-<<<<<<< HEAD
-		return setImmediate(cb, 'Account has no balance: ' + trs.id);
-	}
-
-	if (private.u_tokens[trs.asset.token.name] || private.tokens[trs.asset.token.name]){
-		return setImmediate(cb, 'Token already exists: ' + trs.id);
-=======
 		return setImmediate(cb, "Account does not have enough LISK: " + trs.id);
 	}
 
 	if (private.u_tokens[trs.asset.token.name] || private.tokens[trs.asset.token.name]){
 		return setImmediate(cb, "Token already exists: " + trs.id);
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 	}
 
 	private.u_tokens[trs.asset.token.name] = trs.id;

@@ -3,10 +3,6 @@ var util = require('util');
 var private = {}, self = null,
 	library = null, modules = null;
 
-<<<<<<< HEAD
-
-=======
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 /**
  * Creates instance of Sql API. Use *modules.api.sql* to get existing object.
  *
@@ -28,18 +24,11 @@ private.row2object = function (row) {
 	) {
 		out[this[i]] = row[i];
 	}
-<<<<<<< HEAD
-=======
 
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 	return out;
 }
 
 private.row2parsed = function (row) {
-<<<<<<< HEAD
-	for (var
-			 out = {},
-=======
 	var values = [];
 	for (var key of Object.keys(row)) {
 		values.push(row[key]);
@@ -48,22 +37,11 @@ private.row2parsed = function (row) {
 	for (var
 			 out = {},
 			 value = null,
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 			 fields = this.f,
 			 parsers = this.p,
 			 length = fields.length,
 			 i = 0; i < length; i++
 	) {
-<<<<<<< HEAD
-		if (parsers[i] === Buffer) {
-			out[fields[i]] = parsers[i](row[i], 'hex');
-		} else if (parsers[i] === Array) {
-			out[fields[i]] = row[i] ? row[i].split(",") : []
-		} else {
-			out[fields[i]] = parsers[i](row[i]);
-		}
-	}
-=======
 		value = values[i];
 
 		if (parsers[i] === Buffer) {
@@ -75,7 +53,6 @@ private.row2parsed = function (row) {
 		}
 	}
 
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 	return out;
 }
 
@@ -89,15 +66,9 @@ private.parseFields = function ($fields) {
 	) {
 		current = $fields[fields[i]];
 		parsers[i] = current === Boolean ?
-<<<<<<< HEAD
-			$Boolean : (
-			current === Date ?
-				$Date :
-=======
 			Boolean : (
 			current === Date ?
 				Date :
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 			current || String
 		)
 		;

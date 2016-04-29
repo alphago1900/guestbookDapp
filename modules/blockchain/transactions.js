@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-var async = require('async');
-=======
 var async = require("async");
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 
 var private = {}, self = null,
 	library = null, modules = null;
@@ -93,11 +89,7 @@ Transactions.prototype.processUnconfirmedTransaction = function (transaction, cb
 	}
 
 	if ((scope || private).unconfirmedTransactionsIdIndex[transaction.id] !== undefined || (scope || private).doubleSpendingTransactions[transaction.id]) {
-<<<<<<< HEAD
-		return done("This transaction already exists");
-=======
 		return done("Transaction already exists");
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 	}
 
 	var trsBytes = modules.logic.transaction.getBytes(transaction);
@@ -140,11 +132,7 @@ Transactions.prototype.applyUnconfirmedTransaction = function (transaction, cb, 
 			return setImmediate(cb, err);
 		}
 		if (!sender) {
-<<<<<<< HEAD
-			return cb('Failed account: ' + transaction.id);
-=======
 			return cb("Failed get sender: " + transaction.id);
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 		} else {
 			modules.logic.transaction.applyUnconfirmed(transaction, sender, cb, scope);
 		}
@@ -177,20 +165,12 @@ Transactions.prototype.addTransaction = function (cb, query) {
 			if (err) {
 				return cb(err.toString());
 			}
-<<<<<<< HEAD
-			modules.blockchain.accounts.getAccount({publicKey: keypair.publicKey.toString('hex')}, function (err, account) {
-=======
 			modules.blockchain.accounts.getAccount({publicKey: keypair.publicKey.toString("hex")}, function (err, account) {
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 				if (err) {
 					return cb(err.toString());
 				}
 				if (!account || !account.publicKey) {
-<<<<<<< HEAD
-					return cb("COMMON.OPEN_ACCOUNT");
-=======
 					return cb("Account not found");
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 				}
 
 				try {
@@ -229,11 +209,7 @@ Transactions.prototype.onMessage = function (query) {
 				var transaction = query.message;
 				self.processUnconfirmedTransaction(transaction, function (err) {
 					if (err) {
-<<<<<<< HEAD
-						library.logger("processUnconfirmedTransaction error", err)
-=======
 						library.logger("Failed to process unconfirmed transaction", err)
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 					}
 					cb(err);
 				});
@@ -246,8 +222,4 @@ Transactions.prototype.onBind = function (_modules) {
 	modules = _modules;
 }
 
-<<<<<<< HEAD
 module.exports = Transactions;
-=======
-module.exports = Transactions;
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b

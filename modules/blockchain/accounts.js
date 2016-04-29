@@ -1,14 +1,7 @@
-<<<<<<< HEAD
-var extend = require('extend');
-var util = require('util');
-var crypto = require('crypto-browserify');
-var bignum = require('browserify-bignum');
-=======
 var extend = require("extend");
 var util = require("util");
 var crypto = require("crypto-browserify");
 var bignum = require("browserify-bignum");
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 
 var private = {}, self = null,
 	library = null, modules = null;
@@ -27,11 +20,7 @@ function Accounts(cb, _library) {
 function reverseDiff(diff) {
 	var copyDiff = diff.slice();
 	for (var i = 0; i < copyDiff.length; i++) {
-<<<<<<< HEAD
-		var math = copyDiff[i][0] == '-' ? '+' : '-';
-=======
 		var math = copyDiff[i][0] == "-" ? "+" : "-";
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 		copyDiff[i] = math + copyDiff[i].slice(1);
 	}
 	return copyDiff;
@@ -116,13 +105,9 @@ Accounts.prototype.clone = function (cb) {
 }
 
 Accounts.prototype.getExecutor = function (cb) {
-<<<<<<< HEAD
-	if (!process.argv[2]) return setImmediate(cb, "secret is null");
-=======
 	if (!process.argv[2]) {
 		return setImmediate(cb, "Secret is null");
 	}
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 	if (private.executor) {
 		return setImmediate(cb, null, private.executor);
 	}
@@ -140,11 +125,7 @@ Accounts.prototype.getExecutor = function (cb) {
 }
 
 Accounts.prototype.generateAddressByPublicKey = function (publicKey) {
-<<<<<<< HEAD
-	var publicKeyHash = crypto.createHash('sha256').update(publicKey, 'hex').digest();
-=======
 	var publicKeyHash = crypto.createHash("sha256").update(publicKey, "hex").digest();
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 	var temp = new Buffer(8);
 	for (var i = 0; i < 8; i++) {
 		temp[i] = publicKeyHash[7 - i];
@@ -160,11 +141,7 @@ Accounts.prototype.getAccount = function (filter, cb, scope) {
 		address = self.generateAddressByPublicKey(filter.publicKey);
 	}
 	if (!address) {
-<<<<<<< HEAD
-		return cb("must provide address or publicKey");
-=======
 		return cb("Account not found");
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 	}
 
 	cb(null, private.getAccount(address, scope));
@@ -184,11 +161,7 @@ Accounts.prototype.setAccountAndGet = function (data, cb, scope) {
 		if (data.publicKey) {
 			address = self.generateAddressByPublicKey(data.publicKey);
 		} else {
-<<<<<<< HEAD
-			return cb("must provide address or publicKey");
-=======
 			return cb("Missing address or publicKey");
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 		}
 	}
 	var account = private.getAccount(address, scope);
@@ -208,11 +181,7 @@ Accounts.prototype.mergeAccountAndGet = function (data, cb, scope) {
 		if (data.publicKey) {
 			address = self.generateAddressByPublicKey(data.publicKey);
 		} else {
-<<<<<<< HEAD
-			return cb("must provide address or publicKey");
-=======
 			return cb("Missing address or publicKey");
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 		}
 	}
 
@@ -248,11 +217,7 @@ Accounts.prototype.undoMerging = function (data, cb, scope) {
 		if (data.publicKey) {
 			address = self.generateAddressByPublicKey(data.publicKey);
 		} else {
-<<<<<<< HEAD
-			return cb("must provide address or publicKey");
-=======
 			return cb("Missing address or publicKey");
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 		}
 	}
 	var account = private.getAccount(address, scope);
@@ -294,17 +259,10 @@ Accounts.prototype.open = function (cb, query) {
 	if (!account) {
 		account = private.addAccount({
 			address: address,
-<<<<<<< HEAD
-			publicKey: keypair.publicKey.toString('hex')
-		});
-	}else{
-		account.publicKey = keypair.publicKey.toString('hex');
-=======
 			publicKey: keypair.publicKey.toString("hex")
 		});
 	}else{
 		account.publicKey = keypair.publicKey.toString("hex");
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 	}
 
 	cb(null, {account: account});

@@ -1,14 +1,7 @@
-<<<<<<< HEAD
-var extend = require('extend');
-var util = require('util');
-var crypto = require('crypto-browserify');
-var bignum = require('browserify-bignum');
-=======
 var extend = require("extend");
 var util = require("util");
 var crypto = require("crypto-browserify");
 var bignum = require("browserify-bignum");
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 
 var private = {}, self = null,
 	library = null, modules = null;
@@ -65,29 +58,17 @@ private.mergeDelegates = function (delegates, list, height, cb, scope) {
 	var lastHeight = Math.max.apply(null, Object.keys(delegates));
 
 	if (delegates[height]) {
-<<<<<<< HEAD
-		return cb("Delegate list exists")
-=======
 		return cb("Delegates list already exists")
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 	}
 
 	try {
 		var tmp_delegates = applyDiff(delegates[lastHeight], list);
 	} catch (e) {
-<<<<<<< HEAD
-		return cb("wrong diff delegates" + e.toString());
-	}
-
-	if (!tmp_delegates) {
-		return cb("wrong diff delegates");
-=======
 		return cb("Invalid delegates diff " + e.toString());
 	}
 
 	if (!tmp_delegates) {
 		return cb("Invalid delegates diff");
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 	}
 	delegates[height] = tmp_delegates;
 
@@ -97,11 +78,7 @@ private.mergeDelegates = function (delegates, list, height, cb, scope) {
 private.undoLast = function (delegates, cb, scope) {
 	var lastHeight = Math.max.apply(null, Object.keys(delegates));
 	if (lastHeight == 1) {
-<<<<<<< HEAD
-		return cb("Genesis block is readonly")
-=======
 		return cb("Genesis block is read only")
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 	}
 	delete delegates[lastHeight];
 	lastHeight = Math.max.apply(null, Object.keys(delegates));
@@ -152,20 +129,12 @@ Delegates.prototype.addDelegates = function (cb, query) {
 	var keypair = modules.api.crypto.keypair(query.secret);
 
 	library.sequence.add(function (cb) {
-<<<<<<< HEAD
-		modules.blockchain.accounts.getAccount({publicKey: keypair.publicKey.toString('hex')}, function (err, account) {
-=======
 		modules.blockchain.accounts.getAccount({publicKey: keypair.publicKey.toString("hex")}, function (err, account) {
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 			if (err) {
 				return cb(err.toString());
 			}
 			if (!account || !account.publicKey) {
-<<<<<<< HEAD
-				return cb("COMMON.OPEN_ACCOUNT");
-=======
 				return cb("Failed to get account");
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 			}
 
 			try {
@@ -194,8 +163,4 @@ Delegates.prototype.onBind = function (_modules) {
 	modules = _modules;
 }
 
-<<<<<<< HEAD
 module.exports = Delegates;
-=======
-module.exports = Delegates;
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-var constants = require('../helpers/constants.js');
-=======
 var constants = require("../helpers/constants.js");
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 
 var private = {}, self = null,
 	library = null, modules = null;
@@ -25,19 +21,11 @@ WithdrawalTransfer.prototype.calculateFee = function (trs) {
 
 WithdrawalTransfer.prototype.verify = function (trs, sender, cb, scope) {
 	if (trs.recipientId) {
-<<<<<<< HEAD
-		return cb("TRANSACTIONS.INVALID_RECIPIENT");
-	}
-
-	if (trs.amount <= 0) {
-		return cb("TRANSACTIONS.INVALID_AMOUNT");
-=======
 		return cb("Invalid recipient");
 	}
 
 	if (trs.amount <= 0) {
 		return cb("Invalid transaction amount");
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 	}
 
 	cb(null, trs);
@@ -65,11 +53,7 @@ WithdrawalTransfer.prototype.applyUnconfirmed = function (trs, sender, cb, scope
 	var sum = trs.amount + trs.fee;
 
 	if (sender.u_balance["LISK"] < sum) {
-<<<<<<< HEAD
-		return cb("Sender don't have enough balance");
-=======
 		return cb("Account does not have enough LISK");
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 	}
 
 	modules.blockchain.accounts.mergeAccountAndGet({
@@ -128,10 +112,6 @@ WithdrawalTransfer.prototype.withdrawal = function (cb, query) {
 
 		var keypair = modules.api.crypto.keypair(query.secret);
 
-<<<<<<< HEAD
-		// find sender
-=======
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
 		var account = modules.blockchain.accounts.getAccount({
 			publicKey: keypair.publicKey.toString("hex")
 		}, function (err, account) {

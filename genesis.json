@@ -1,13 +1,7 @@
 {
-<<<<<<< HEAD
-    "delegate": "b114dc2cc76114f41c3ff166ffd0a71a3502a9e12cbed537562e23e29f026070",
-    "height": 1,
-    "pointId": "7934846741087222908",
-=======
     "delegate": "a727b3a684733dc84e479b6a004328a7ce269f1d082770e253e11992063bc9d5",
     "height": 1,
     "pointId": "3186137983725535284",
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
     "pointHeight": 1,
     "transactions": [
         {
@@ -16,19 +10,6 @@
             "fee": 0,
             "timestamp": 0,
             "recipientId": null,
-<<<<<<< HEAD
-            "senderId": "9578191152181898892L",
-            "senderPublicKey": "b114dc2cc76114f41c3ff166ffd0a71a3502a9e12cbed537562e23e29f026070",
-            "asset": {
-                "delegates": {
-                    "list": [
-                        "+b114dc2cc76114f41c3ff166ffd0a71a3502a9e12cbed537562e23e29f026070"
-                    ]
-                }
-            },
-            "signature": "29945ad5ad8c516d10dbdff57995d3ec82bbb1d44e482b318863b0709eda37f479c17edf8b784a00a0122debb7ef14dc24d11129053a7f823ad575b192d10707",
-            "id": "4554222063848333642"
-=======
             "senderId": "14278295494158118530L",
             "senderPublicKey": "a727b3a684733dc84e479b6a004328a7ce269f1d082770e253e11992063bc9d5",
             "asset": {
@@ -40,20 +21,12 @@
             },
             "signature": "4479dbb47d4e2aff4c23f7e673260d2f077a78bffcdd8ce3359afe63526014150f74b7ea9c70a29c319976da36d4d732c0367fdebeb5209b9728823bec659e0d",
             "id": "14208407964060293574"
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
         }
     ],
     "timestamp": 0,
     "count": 1,
     "payloadLength": 182,
-<<<<<<< HEAD
-    "payloadHash": "4a21ed77d6d8333f1f5cbb0c3e30b3d0f8902b018586eef3b24ccc561263b4bc",
-    "signature": "cb78f76a322f626553a7800735073019efad7599350d9e95274ddee869af3481b7b732c1ad21f6b4704eef1413d27081ab5a2485ebdf0090ccca58ac231b3800",
-    "id": "11028354496826417035"
-}
-=======
     "payloadHash": "c619a591c3672ec5141d0750a01f3deba8e3eb796fc85a00f16d6012bdd05a43",
     "signature": "3545ce171967f47c562d10d4a5708e42176da7b9eeffdcb7085b8ffe97e04d70e6f576ff5f7afad02c1e759f4f6660dbfca1e099ce0db2e7047d2e357f80f804",
     "id": "14256035417224334419"
 }
->>>>>>> b4ceb242c81baf0199b48c12b3e63f7fd70b5f9b
